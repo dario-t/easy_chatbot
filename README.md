@@ -22,3 +22,5 @@ An easy chatbot
 ### (23-25.03) create a SQL BD. *❌
 
 ### (22.03---) Modify the code to base it on object oriented programming.*❌
+
+* only if time permits
