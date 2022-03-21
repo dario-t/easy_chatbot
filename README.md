@@ -9,13 +9,13 @@ An easy chatbot
 ### (16-17.03) Implement recommendation system:
 
   *   Alternating Least Square (ALS). ✅
-  *   With content-based method. ☕
-  *   hybrid recommender system.❌
+  *   With content-based method. *
+  *   hybrid recommender system. *
   *   A_B test. * ❌
 
 
 
-### (18-20.03) Integrate everything in the chatbot.❌
+### (18-20.03) Integrate everything in the chatbot.☕
 
 ### (21-22.03) Create graphical environment with PYQt.❌
 
