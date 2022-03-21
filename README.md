@@ -15,9 +15,9 @@ An easy chatbot
 
 
 
-### (18-20.03) Integrate everything in the chatbot.☕
+### (21.03) Integrate everything in the chatbot.☕
 
-### (21-22.03) Create graphical environment with PYQt.❌
+### (22.03) Create graphical environment with PYQt.❌
 
 ### (23-25.03) create a SQL BD. *❌
 
