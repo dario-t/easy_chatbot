@@ -11,7 +11,7 @@ An easy chatbot
   *   Alternating Least Square (ALS). ✅
   *   With content-based method. *
   *   hybrid recommender system. *
-  *   A_B test. * ❌
+  *   A_B test. * 
 
 
 
