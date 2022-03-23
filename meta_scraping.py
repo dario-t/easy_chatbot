@@ -13,7 +13,8 @@ def soup_web(url_s):
 
 
 
-def storage_(pag, to_stor):  
+def storage_main(pag, to_stor):  
+
     # --------------------------------------------------------------------------
     # Storage the dict in a json archive
     # --------------------------------------------------------------------------
@@ -28,11 +29,13 @@ def storage_(pag, to_stor):
     except FileExistsError:
         pass
 
-    with open(dir+f"games_pag_{pag}.json", "w") as f:
+    with open(dir+f"games_{pag}.json", "w") as f:
         json.dump(to_stor, f)
 
 
-
+def critic_scraping(url):
+    # TODO
+    pass
 
 def pag_scrapp(dict_games):
 
@@ -40,14 +43,14 @@ def pag_scrapp(dict_games):
     # take out the url per games in dict_games to scraped the critic
     # reviews, date, note and url of the reviewers
     # -----------------------------------------------------------------------------
-
+    
     # firs we take the published and the gener(s):
     for game in dict_games:
-        print(game)
-
         
         url_g_ = dict_games[game]["url"]
         soup_g = soup_web(url_g_)
+        
+        
         try: 
             dict_games[game]["developer"] = soup_g.find_all("a", attrs= {"class":"button"})[0].text
         except: 
@@ -94,6 +97,8 @@ def pag_scrapp(dict_games):
             except: 
                 dict_games[game]["media"][reviewer].update({"note_m": ""})
 
+    storage_main("all", dict_games)  
+
 def main_scrap():
 
 # First page to open with the list of the first 100 games to scraped
@@ -112,14 +117,16 @@ def main_scrap():
     #  first_pag -> from which page we want to do scraping
     
     first_pag = str(0)
+    dict_games = dict()
 
     for i in range(0,last_pag):
+        
 
         # --------------------------------------------------------------------------
         # Create a dict, then scrapper the entry list web, then scraped per games, 
         # then storage the dict in a json
         # --------------------------------------------------------------------------- 
-        dict_games =dict()
+        
         
         url_ = url + str(i)
         response  = requests.get(url + str(i), headers = user_agent)
@@ -137,6 +144,7 @@ def main_scrap():
                 clam_details = soup.find_all("div", attrs = {"class":"clamp-details"})[game]
                 platform_ = clam_details.find_all("span")[1].text[41:-77]        
                 dict_games[title_]["platform"].append(platform_)
+
             else:
 
                 # If the game is not in the dict    
@@ -157,8 +165,14 @@ def main_scrap():
                                     "date" : date_,
                                     "media": dict()
                                     }
-        pag_scrapp(dict_games)
-        storage_(i, dict_games)
+            
         print(8*"-", "PAGE", i, 8*"-")
 
-main_scrap()
+
+        
+    storage_main(i, dict_games)
+        
+    
+    return dict_games
+
+pag_scrapp(main_scrap())
