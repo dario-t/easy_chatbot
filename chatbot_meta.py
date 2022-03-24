@@ -34,12 +34,11 @@ with open(dir_games,"r", encoding="utf-8") as json_file:
 df = pd.DataFrame(data)
 
 
-
-
 def tokenizer(_input) ->list:
     # Tokenize and delete the special character
     split_message = re.split(r'\s|[,:;.?!-_]\s*', _input.lower())
     return [i for i in split_message if i != ""]
+
 
 def prob(text_, list) -> float:
     # returns the probability that the input matches the sentences.
@@ -135,9 +134,9 @@ def like_videogames(list_fav):
                                     like_videogames(list_fav)
                                 
                                 else:
-                                    re_ask = (random.choice(json_entry["intents"][19]["responses"])) #TODO # sorry i don´t undertand you, stat again?
+                                    re_ask = (random.choice(json_entry["intents"][19]["responses"])) # sorry i don´t undertand you, start again?
                                     if re_ask in json_entry["intents"][3]["patterns"]: # if yes
-                                        like_videogames(list_fav) # stat again
+                                        like_videogames(list_fav) # start again
                                         break
                                     elif re_ask in json_entry["intents"][1]["patterns"]: 
                                         print(random.choice(json_entry["intents"][10]["responses"])) # let´s go
