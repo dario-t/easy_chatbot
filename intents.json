@@ -1,0 +1,71 @@
+{"intents": [
+        {"tag": "0_greeting_1",
+         "patterns": [""],
+         "responses": ["{}, my name is Bender, do you like video games?", "{} gamer, do you like video games? ", "{}, do you like video games?"] 
+        },
+        {"tag": "1_greeting_no",
+         "patterns": ["not", "not really", "not at all", "hate ", "no", "never",  "nope", "nae", "no thanks", "no way", "of course not", "nop"],
+         "responses": ["Well, my dad has programmed me to recommend video games, but if you don't like it I could show you something you will like, tell me, what do you like?"]
+        },
+        {"tag": "2_greeting_no_1",
+         "patterns": [""],
+         "responses": ["'{}', ok I'll see what I can do."]
+        },
+        {"tag": "3_greeting_yes",
+         "patterns": ["yes", " i love them", "of course", "yes, i want", "why not", "sure", "affirmative", "all right", "alright", "very well", "of course", "by all means", "sure", "certainly", "absolutely", "indeed", "affirmative", "in the affirmative", "agreed", "roger", "aye", "aye aye", "yeah", "yah", "yep", "yup", "uh-huh", "okay", "OK", "okey-dokey", "okey-doke", "achcha", "righto",
+                     "surely" ],
+         "responses": ["Tell me a game you like.", "Could you tell me one of your favorite game?"]
+        }
+        ,
+        {"tag": "4_noanswer",
+         "patterns": [""],
+         "responses": ["I didn't understand you, could you repeat it?, say just 'yes' or 'no', do you like video games?"]
+         },
+        {"tag":"5_another",
+         "patterns": [""],
+         "responses": ["If you want to add another just say the game, if not then say 'no'"]
+        },
+        {"tag":"6_macht_list",
+          "paterns":[""],
+          "responses":["Here is a list of the games that most closely match the name you have given."]
+        },
+        {"tag":"7_n-entry",
+          "paterns":[""],
+          "responses":["If the game you had in mind is on the list, choose the number on the right, if not, say 'no'"]
+        },
+        {"tag":"8_game_choose",
+          "responses":["Perfect, you have chosen '{}', very good game!","'{}', good game, I like it as well","mmm, '{}', we have similar feelings about games", "'{}' has been included in the list" ]
+        },
+        {"tag":"9_again",
+        "responses":["Do you want to add another game?"]
+        },
+        {"tag": "10_end_reentry",
+        "responses": ["Ok, so let's go"]
+        },
+        {"tag": "11_not_num",
+        "responses": ["That is not a valid number"]
+        },
+        {"tag":"12_next_list",
+        "responses":["I will show you another list"]
+        },
+        {"tag":"13_next_list_2",
+        "responses":["Write the number if your game is here, if not, say no"]
+        },
+        {"tag":"14_google_end",
+        "responses": ["Click here and Hasta la vista!"]},
+        {"tag": "15",
+        "responses": ["Sorry, your game is not in my database, do you want to add another game?"]
+        },
+        {"tag":"16",
+            "responses": ["it has to be a number between 0 and 9"]
+        },
+        {"tag":"17",
+            "responses": ["it has to be a number between 9 and 19"]
+        },
+        {"tag": "18",
+             "responses": ["{} is neither a number nor a negation, we'd better start over... "]},
+        {"tag": "19",
+              "responses": ["Sorry, I don't understand {}, I'm not very smart, to tell you the truth, do you want to start over?"]
+        }   
+     ]
+}
