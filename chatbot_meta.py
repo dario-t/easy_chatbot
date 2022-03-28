@@ -6,12 +6,13 @@ import random
 from googlesearch import search
 import pandas as pd
 
-dir = "json\\intents.json"
+dir = "C:\\Users\\Ich\\OneDrive\\python\\Proyect\\Meta_chat_bot\\intents.json"
 
 with open(dir, "r", encoding="utf-8") as json_file:
     json_entry = json.load(json_file)
- 
-# greeting 
+
+
+# return a greeting message
 now = datetime.now()
 current_time = int(now.strftime("%H"))
 if current_time >= 5 and current_time < 11:
@@ -25,7 +26,7 @@ else:
 
 # import df
 
-dir_games = "json\\games.json"
+dir_games = "C:\\Users\\Ich\\OneDrive\\python\\Proyect\\Meta_chat_bot\\json\\games.json"
 
 with open(dir_games,"r", encoding="utf-8") as json_file:
     data = json.load(json_file)
@@ -33,12 +34,10 @@ with open(dir_games,"r", encoding="utf-8") as json_file:
 
 df = pd.DataFrame(data)
 
-
 def tokenizer(_input) ->list:
     # Tokenize and delete the special character
     split_message = re.split(r'\s|[,:;.?!-_]\s*', _input.lower())
     return [i for i in split_message if i != ""]
-
 
 def prob(text_, list) -> float:
     # returns the probability that the input matches the sentences.
@@ -65,7 +64,9 @@ def match_games(game, list_g):
 
 list_games = [i.lower() for i in df]
 
+
 def like_videogames(list_fav):
+    # conversation if like videogames
     sent_game = input(random.choice(json_entry["intents"][3]["responses"])) # we ask about the game
     g = match_games(sent_game.lower(), list_games) # we pass the match function
  
@@ -105,8 +106,7 @@ def like_videogames(list_fav):
                 else:
                     print(random.choice(json_entry["intents"][16]["responses"])) # must to be a num between 0 and 9
             except:
-                if g_entry.lower() == "no": # no esta en la lista
-                    print(random.choice(json_entry["intents"][12]["responses"])) # show you another list
+                if g_entry.lower() == "no": # no t in list                    print(random.choice(json_entry["intents"][12]["responses"])) # show you another list
                     for cont, value in enumerate(g[10:20]):           
                         print(cont, value[2]) # print the list
                     re_ask_2 = input(random.choice(json_entry["intents"][13]["responses"]))# in list if not say no
@@ -134,9 +134,9 @@ def like_videogames(list_fav):
                                     like_videogames(list_fav)
                                 
                                 else:
-                                    re_ask = (random.choice(json_entry["intents"][19]["responses"])) # sorry i don´t undertand you, start again?
+                                    re_ask = (random.choice(json_entry["intents"][19]["responses"])) #TODO # sorry i don´t undertand you, stat again?
                                     if re_ask in json_entry["intents"][3]["patterns"]: # if yes
-                                        like_videogames(list_fav) # start again
+                                        like_videogames(list_fav) # stat again
                                         break
                                     elif re_ask in json_entry["intents"][1]["patterns"]: 
                                         print(random.choice(json_entry["intents"][10]["responses"])) # let´s go
@@ -152,12 +152,14 @@ def like_videogames(list_fav):
                             break
 
 def bot():
-    sent_0 = input(random.choice(json_entry["intents"][0]["responses"]).format(good)) # pregunta si le gustan 
+    # main function
+    y = yield random.choice(json_entry["intents"][0]["responses"]).format(good)
+    y # ask if you like videogames 
     x = 0
     while True: 
-            
-        if sent_0.lower() in json_entry["intents"][1]["patterns"]: sent_1 = 1 # si es negativo
-        elif sent_0.lower() in json_entry["intents"][3]["patterns"]: sent_1 = 3 # si es afirmativo
+        r = yield
+        if r.lower() in json_entry["intents"][1]["patterns"]: sent_1 = 1 # si es negativo
+        elif r.lower() in json_entry["intents"][3]["patterns"]: sent_1 = 3 # si es afirmativo
         else: sent_1 = 4
 
         # don´t like videogames
@@ -182,4 +184,5 @@ def bot():
                 print("ok, you are very funny, Hasta la vista")
                 break
             sent_0 = input(random.choice(json_entry["intents"][sent_1]["responses"]))
-    
+# y = bot()
+
