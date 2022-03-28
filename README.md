@@ -17,10 +17,5 @@ An easy chatbot
 
 ### Create the chatbot.✅
 
-### (24-25.03) Create graphical environment with PYQt. ☕
+### Create graphical environment with TK. ☕
 
-### Create a SQL BD. *❌
-
-### Modify the code to base it on object oriented programming.*❌
-
-\* only if time permits
