@@ -6,11 +6,10 @@ from sys import platform
 
 
 def soup_web(url_s):
+    # Metacritic has an anti Web scraping script, whit user-agent we can hook the script 
     user_agent = {"User-agent": "Mozilla/5.0"}
     response  = requests.get(url_s, headers = user_agent)
     return BeautifulSoup(response.text, "html.parser")
-
-
 
 
 def storage_main(pag, to_stor):  
@@ -20,9 +19,9 @@ def storage_main(pag, to_stor):
     # --------------------------------------------------------------------------
     
     if platform == "linux":
-        dir = "/json/"
+        dir = "game_recomendation/json/"
     else:
-        dir = "\\json\\"
+        dir = "game_recomendation\\json\\"
 
     try: 
         os.mkdir(dir)
@@ -100,6 +99,10 @@ def pag_scrapp(dict_games):
     storage_main("all", dict_games)  
 
 def main_scrap():
+    # -----------------------------------------------------------------------------
+    #  scrap the games, the platform, the release date, the metascore and the url
+    #  and storage the dict in a json archive
+    # -----------------------------------------------------------------------------
 
 # First page to open with the list of the first 100 games to scraped
 
@@ -176,3 +179,6 @@ def main_scrap():
     return dict_games
 
 pag_scrapp(main_scrap())
+
+
+
