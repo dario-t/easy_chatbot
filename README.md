@@ -18,7 +18,7 @@ This project consists of 4 parts_
 The scraping phase consists of 2 phases: 
 - The first one takes the main page of the best games of all times and returns a list with the names of the games, the platform, the release date and the metascore and the url, and storage the dict in a json archive.
 
-![Games of all time in Metacritic](https://github.com/dario-t/easy_chatbot/blob/main/img/Meta%20all%20games.png){width='200px'}
+![Games of all time in Metacritic](https://github.com/dario-t/easy_chatbot/blob/main/img/Meta%20all%20games.png){width='50px'}
 
 
 ### Implement recommendation system: recomend_sys.py
