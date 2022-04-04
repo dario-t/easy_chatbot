@@ -10,12 +10,12 @@ The Berder ChatBot recommends 10 games in a gui, the recommendations are taken f
 
 ### Web scraping Metacritic -> Meta_scraping.py
   
-*   Export dict to json archive ans safe it. ✅
-*   from json to DataFrame. ✅
+*   Export dict to json archive ans safe it. 
+*   from json to DataFrame. 
 
 ### Implement recommendation system: recomend_sys.py
 
-*   Per Pearson correlation coefficient . ✅
+*   Per Pearson correlation coefficient 
 
 ### ChatBoot . ->chatbot_meta.py
 
