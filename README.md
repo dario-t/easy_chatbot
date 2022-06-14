@@ -16,11 +16,11 @@ This project consists of 4 parts:
 ### Web scraping Metacritic -> meta_scraping.py
   
 * The scraping phase consists of 2 phases: 
-- The first one takes the main page of the best games of all times and returns a list with the names of the games, the platform, the release date and the metascore and the url, and storage the dict in a json archive.
+- The first one takes the main page of the best games of all times and returns a list with the names of the games, the platform, the release date and the metascore and the url, and storage it.
 
 <img src= "https://github.com/dario-t/easy_chatbot/blob/main/img/Meta%20all%20games.png" width="50%" height="50%">
 
-- In the second one, take out the url per games in dict_games to scraped the critic reviews, date, note and url of the reviewers and update the games.json *
+- In the second one, take out the url per games s to scraped the critic reviews, date, note and url of the reviewers and update the MongoDB
 
 <img src= "https://github.com/dario-t/easy_chatbot/blob/main/img/games.png" width="50%" height="50%">
 
