@@ -4,7 +4,7 @@ ________________________________________________________________________________
 I am currently creating this chatbot as part of a professional training. There are small bugs that need to be polished.
 ________________________________________________________________________________________________________________________________________________________________________
 
-The Berder ChatBot recommends 10 games in a gui, the recommendations are taken from the Metacritic page using webScraping, the critic are taken only from the accredited media. To get the data you have to run the Meta_scraping file, which will storage the datas in a MongoDB.
+The Berder ChatBot recommends 10 games in a gui, the recommendations are taken from the Metacritic page using webScraping, the critic are taken only from the accredited media. To get the data you have to run the Meta_scraping file, which will storage it in a MongoDB.
 
 This project consists of 4 parts:
 - Web Scraping
